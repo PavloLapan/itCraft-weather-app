@@ -78,10 +78,7 @@ const WeatherWidget = () => {
                     </Box>
 
                 )
-
             }
-
-
         </WeatherWrapper>
     )
 }

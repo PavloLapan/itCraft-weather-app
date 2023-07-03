@@ -23,3 +23,13 @@ export type WeatherDataProps = {
         name: string;
     };
 };
+
+export interface informationFormProps {
+    firstName: string,
+    lastName: string,
+    email: string,
+    address: string,
+    city: string,
+    state: string,
+    zip: string,
+}

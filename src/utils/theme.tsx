@@ -22,8 +22,7 @@ export const theme = createTheme({
         },
         palette: {
             primary:{
-                main: '#3ec993',
-                contrastText: '#e1f87d',
+                main: '#FFF',
                 red: '#a41d1d',
                 pink: '#a18cd1',
                 darkPink: '#fbc2eb'

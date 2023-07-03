@@ -1,5 +1,4 @@
-import ('dotenv')
-
+import {informationFormProps} from "../../utils/types.ts";
 
 class fetchConfiguration {
     public getWeatherFetchConfiguration = async (position: any) => {
@@ -12,12 +11,16 @@ class fetchConfiguration {
             console.error(`The problem is in ${err}`);
         }
     }
-
-    static postInformationForm = () => {
-
+    public postInformationForm = async (fields: informationFormProps) => {
+        try {
+            const res = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_FETCH_API_KEY}&q=${fields}`, {method: "POST"})
+            const result = await res.json();
+            return result;
+        }
+        catch (err){
+            console.error(`The problem is in ${err}`);
+        }
     }
-
-
 }
 
 export default fetchConfiguration
