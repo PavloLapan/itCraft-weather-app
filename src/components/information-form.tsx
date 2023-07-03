@@ -1,8 +1,16 @@
 import {Field, Form, Formik, ErrorMessage} from "formik";
 import {useState} from "react";
-import {Box, Button, CircularProgress} from "@mui/material";
+import {Box, Button, CircularProgress, styled} from "@mui/material";
 import {informationFormProps} from "../utils/types.ts";
 import FetchConfiguration from "./helpers/fetch-configuration.ts";
+
+const FieldWrapper = styled(Field)(() => ({
+    margin: "3em auto",
+    padding: '1rem',
+    border: '0',
+    borderRadius: '15px'
+}));
+
 
 const validateEmail = (value: string): string | undefined => {
     if (!value) {
@@ -51,31 +59,31 @@ const InformationForm = () => {
             onSubmit={handleSubmit}
         >
             {({isSubmitting}) => (
-                <Form>
+                <Form className='form'>
                     <Box sx={{display: 'flex'}}>
-                        <Field type="text" name="firstName" placeholder="First name"/>
-                        <Field type="text" name="lastName" placeholder="Last name"/>
+                        <FieldWrapper type="text" name="firstName" placeholder="First name"/>
+                        <FieldWrapper type="text" name="lastName" placeholder="Last name"/>
                     </Box>
 
-                    <ErrorMessage name="email" component="div"/>
-                    <Field
+                    <ErrorMessage style={{color: 'red'}} name="email" component="div"/>
+                    <FieldWrapper
                         type="email"
                         name="email"
                         placeholder="Email"
                         validate={validateEmail}
                     />
 
-                    <Field type="text" name="address" placeholder="Address"/>
+                    <FieldWrapper type="text" name="address" placeholder="Address"/>
 
                     <Box sx={{display: 'flex'}}>
-                        <Field type="text" name="city" placeholder="City"/>
-                        <Field type="text" name="state" placeholder="State"/>
-                        <Field type="text" name="zip" placeholder="Zip"/>
+                        <FieldWrapper type="text" name="city" placeholder="City"/>
+                        <FieldWrapper type="text" name="state" placeholder="State"/>
+                        <FieldWrapper type="text" name="zip" placeholder="Zip"/>
                     </Box>
                     {isSubmitting ? (
                         <div><CircularProgress color="secondary"/></div>
                     ) : (
-                        <Button type='submit' variant="contained">Submit</Button>
+                        <Button sx={{pl: '10px'}} type='submit' variant="contained">Submit</Button>
 
                     )}
 
