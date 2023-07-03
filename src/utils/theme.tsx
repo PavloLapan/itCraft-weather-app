@@ -2,10 +2,31 @@ import { createTheme } from "@mui/material/styles";
 
 
 export const theme = createTheme({
+        components: {
+            MuiTypography: {
+                defaultProps: {
+                    variantMapping: {
+                        h1: 'h2',
+                        h2: 'h2',
+                        h3: 'h2',
+                        h4: 'h2',
+                        h5: 'h2',
+                        h6: 'h2',
+                        subtitle1: 'h2',
+                        subtitle2: 'h2',
+                        body1: 'span',
+                        body2: 'span',
+                    },
+                },
+            },
+        },
         palette: {
             primary:{
                 main: '#3ec993',
-                contrastText: '#e1f87d'
+                contrastText: '#e1f87d',
+                red: '#a41d1d',
+                pink: '#a18cd1',
+                darkPink: '#fbc2eb'
             }
         }
 });
